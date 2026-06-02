@@ -18,9 +18,9 @@ const filteredSkills = filter === "All"
         // </div>
 
 
-        <div>
+        <div className="section">
             <h2>Skills</h2>
-            <div>
+            <div className="filter-buttons">
                 {categories.map(category => (
                     <button 
                          key ={category}
@@ -32,14 +32,13 @@ const filteredSkills = filter === "All"
             </div>
 
 
-            <div>
+            <div className="skills-container">
                 {filteredSkills.map(skill => (
-                    <span key={skill.name}>{skill.name}</span>
+                    <span key={skill.name} className="skill-badge">{skill.name}</span>
                 ))}
             </div>
         </div>
     );
 }
-
 
 export default Skills;

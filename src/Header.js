@@ -1,6 +1,6 @@
 function Header({name, title, location}){
     return (
-        <div>
+        <div className="header">
             {/* <h1>Neha Patil</h1>
             <p>Frontend Developer | Bay Area, CA</p> */}
 
