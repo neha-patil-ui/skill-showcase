@@ -2,7 +2,7 @@
 import './App.css';
 import Header from './Header';
 import Skills from './Skills';
-
+import Projects from './Projects';
 
 // function App() { // Component - like Angular's @Componenet 
 //   return (      // Returns what to show on Sceen
@@ -56,6 +56,26 @@ const skills=[
         {name: "Git", category: "Tools" },
 ];
 
+const projects =[
+  {
+  name: "JavaScript Practice",
+  description: "Daily JavaScript learning - variables, functions,arrays, objects, conditions and loops.",
+  link: "https://github.com/neha-patil-ui/javascript-practice"
+  },
+  {
+    name: "DOM Practice",
+    description: "Interactive webpage using DOM manipulation, event listeners and dynamic styling.",
+    link: "https://github.com/neha-patil-ui/dom-practice"
+  },
+  {
+    name: "My Portfolio",
+    description: "Personal portfolio website built with HTML,CSS and JavaScript. Live on GitHub Pages.",
+    link: "https://github.com/neha-patil-ui/my-portfolio"
+  }
+];
+
+
+
 // function App(){
   return(
     <div className="App">
@@ -65,9 +85,12 @@ const skills=[
       location="Bay Area, CA"
       />
       <Skills skills={skills}/>
+      <Projects projects={projects}/>
     </div>
   );
 }
+
+
 
 
 export default App;
