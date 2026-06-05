@@ -4,7 +4,7 @@ import Header from './Header';
 import Skills from './Skills';
 import Projects from './Projects';
 import Contact from './Contact';
-
+import { useState, useEffect } from 'react';
 
 
 
@@ -84,6 +84,20 @@ const contactInfo={
     github:"https://github.com/neha-patil-ui"
 };
 
+
+const [githubRepos, setGithubRepos]= useState([]);
+
+useEffect(() => {
+  fetch('https://api.github.com/users/neha-patil-ui/repos')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      setGithubRepos(data);
+    });
+}, []);
+
+
+
 // function App(){
   return(
     <div className="App">
@@ -94,6 +108,24 @@ const contactInfo={
       />
       <Skills skills={skills}/>
       <Projects projects={projects}/>
+      
+      <div className="section">
+        <h2>GitHub Repositories</h2>
+        {githubRepos.map(repo => (
+          <div key={repo.id} className="project-card">
+            <h3>{repo.name}</h3>
+            <p>{repo.description || "No description added yet"}</p>
+            <a href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-link">
+              View on Github
+            </a>
+            </div>
+        ))}
+      </div>
+    
+      
       <Contact contactInfo={contactInfo}/>
     </div>
   );
