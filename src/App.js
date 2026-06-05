@@ -86,6 +86,7 @@ const contactInfo={
 
 
 const [githubRepos, setGithubRepos]= useState([]);
+const [isLoading, setIsLoading]= useState(true);
 
 useEffect(() => {
   fetch('https://api.github.com/users/neha-patil-ui/repos')
@@ -93,6 +94,7 @@ useEffect(() => {
     .then(data => {
       console.log(data);
       setGithubRepos(data);
+      setIsLoading(false);  //data arrived - loading done !
     });
 }, []);
 
@@ -111,7 +113,10 @@ useEffect(() => {
       
       <div className="section">
         <h2>GitHub Repositories</h2>
-        {githubRepos.map(repo => (
+        {isLoading ? (
+          <p>Loading repositories...</p>
+        ) : (
+           githubRepos.map(repo => (
           <div key={repo.id} className="project-card">
             <h3>{repo.name}</h3>
             <p>{repo.description || "No description added yet"}</p>
@@ -122,7 +127,8 @@ useEffect(() => {
               View on Github
             </a>
             </div>
-        ))}
+        ))
+        )}
       </div>
     
       
