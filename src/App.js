@@ -3,6 +3,10 @@ import './App.css';
 import Header from './Header';
 import Skills from './Skills';
 import Projects from './Projects';
+import Contact from './Contact';
+
+
+
 
 // function App() { // Component - like Angular's @Componenet 
 //   return (      // Returns what to show on Sceen
@@ -74,7 +78,11 @@ const projects =[
   }
 ];
 
-
+const contactInfo={
+    email: "nehap2110@gmail.com",
+    linkedIn:"https://linkedin.com/in/neha-patil-58b816321",
+    github:"https://github.com/neha-patil-ui"
+};
 
 // function App(){
   return(
@@ -86,6 +94,7 @@ const projects =[
       />
       <Skills skills={skills}/>
       <Projects projects={projects}/>
+      <Contact contactInfo={contactInfo}/>
     </div>
   );
 }
